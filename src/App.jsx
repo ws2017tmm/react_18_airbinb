@@ -4,16 +4,18 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 09:15:37
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-05-25 09:24:06
+ * @LastEditTime: 2023-05-26 10:38:47
  */
 
 import { memo } from "react"
-
+import { useRoutes } from "react-router-dom"
+import routes from "./router"
+import AppHeader from "./components/app-header"
 const App = memo(() => {
   return (
     <div className="App">
-      <div className="header">header</div>
-      <div className="content">content</div>
+      <AppHeader />
+      <div className="content">{useRoutes(routes)}</div>
       <div className="footer">footer</div>
     </div>
   )
