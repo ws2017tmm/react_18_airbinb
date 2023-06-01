@@ -4,14 +4,13 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 10:43:17
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-01 18:47:14
+ * @LastEditTime: 2023-06-01 19:41:08
  */
 import React, { memo, useEffect } from "react"
 import { shallowEqual, useDispatch, useSelector } from "react-redux"
 
 import { fetchHomeDataAction } from "@/store/modules/home"
 import HomeWrapper from "./style"
-import SvgIcon from "@/assets/svg"
 
 const Home = memo(() => {
   /** 派发异步的事件: 发送网络请求 */
@@ -27,12 +26,7 @@ const Home = memo(() => {
     shallowEqual
   )
   console.log(store, "-----store")
-  return (
-    <HomeWrapper>
-      Home
-      <SvgIcon name="logo" />
-    </HomeWrapper>
-  )
+  return <HomeWrapper>Home</HomeWrapper>
 })
 
 export default Home
