@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 11:17:45
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-01 18:50:54
+ * @LastEditTime: 2023-06-01 19:38:15
  */
 const path = require("path")
 const CracoLessPlugin = require("craco-less")
@@ -41,7 +41,7 @@ module.exports = {
         ...[
           {
             test: /.svg$/, // 存放svg的文件夹
-            include: resolve("./src/asset/svg/icons"),
+            include: resolve("./src/assets/svg/icons"),
             use: [
               { loader: "svg-sprite-loader", options: {} },
               { loader: "svgo-loader", options: { symbolId: "icon-[name]" } }
