@@ -4,13 +4,14 @@
  * @Autor: StevenWu
  * @Date: 2023-05-26 10:30:30
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-05-31 18:34:24
+ * @LastEditTime: 2023-06-01 10:26:41
  */
 
 import styled from "styled-components"
 
 export const LeftWrapper = styled.div`
   flex: 1;
+
   .logo-box {
     display: flex;
     align-items: center;
@@ -19,8 +20,7 @@ export const LeftWrapper = styled.div`
     .logo {
       width: 102px;
       height: 32px;
+      cursor: pointer;
     }
   }
-
-  color: red;
 `
