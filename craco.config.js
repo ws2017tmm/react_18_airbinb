@@ -44,6 +44,7 @@ module.exports = {
             include: resolve("./src/assets/svg/icons"),
             use: [
               { loader: "svg-sprite-loader", options: {} },
+              { loader: "svg-transform-loader", options: {} },
               { loader: "svgo-loader", options: { symbolId: "icon-[name]" } }
             ]
           }

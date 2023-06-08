@@ -1,0 +1,7 @@
+.svg-icon {
+  display: inline-block;
+  width: 1em;
+  min-width: 14px;
+  height: 1em;
+  overflow: hidden;
+}

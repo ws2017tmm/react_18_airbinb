@@ -4,9 +4,10 @@
  * @Autor: StevenWu
  * @Date: 2023-05-26 13:54:51
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-01 19:48:01
+ * @LastEditTime: 2023-06-08 15:47:42
  */
 import React, { memo } from "react"
+import "./style.css"
 
 require("./icons/avatar.svg")
 
