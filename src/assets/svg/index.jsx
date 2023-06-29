@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-05-26 13:54:51
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-08 15:47:42
+ * @LastEditTime: 2023-06-08 16:43:27
  */
 import React, { memo } from "react"
 import "./style.css"
@@ -21,7 +21,7 @@ try {
 }
 
 const SvgIcon = memo((props) => {
-  const { name, color, svgClass } = props
+  const { name, color = "#fff", svgClass = "" } = props
   return (
     <svg className={`svg-icon ${svgClass}`}>
       <use xlinkHref={"#" + name} fill={color} />

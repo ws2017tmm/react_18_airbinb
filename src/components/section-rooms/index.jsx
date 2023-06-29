@@ -1,0 +1,30 @@
+/*
+ * @Description:
+ * @Version: 1.0
+ * @Autor: StevenWu
+ * @Date: 2023-06-09 16:00:40
+ * @LastEditors: StevenWu
+ * @LastEditTime: 2023-06-12 19:02:08
+ */
+import PropTypes from "prop-types"
+import React, { memo } from "react"
+
+import { RoomsWrapper } from "./style"
+import RoomItem from "../room-item"
+
+const SectionRooms = memo((props) => {
+  const { roomList = [], itemWidth } = props
+  return (
+    <RoomsWrapper>
+      {roomList.slice(0, 8)?.map((item) => {
+        return <RoomItem itemData={item} itemWidth={itemWidth} key={item.id} />
+      })}
+    </RoomsWrapper>
+  )
+})
+
+SectionRooms.propTypes = {
+  roomList: PropTypes.array
+}
+
+export default SectionRooms
