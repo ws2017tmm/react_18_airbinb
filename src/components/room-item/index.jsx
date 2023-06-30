@@ -4,10 +4,11 @@
  * @Autor: StevenWu
  * @Date: 2023-06-12 18:19:34
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-12 19:11:33
+ * @LastEditTime: 2023-06-30 11:09:36
  */
 import PropTypes from "prop-types"
 import React, { memo } from "react"
+import { Rating } from "@mui/material"
 import { ItemWrapper } from "./style"
 
 const RoomItem = memo((props) => {
@@ -26,13 +27,12 @@ const RoomItem = memo((props) => {
         <div className="price">¥{itemData.price}/晚</div>
 
         <div className="bottom">
-          {/* <Rating
+          <Rating
             value={itemData.star_rating ?? 5}
             precision={0.1}
             readOnly
             sx={{ fontSize: "12px", color: "#00848A", marginRight: "-1px" }}
-          /> */}
-          ***
+          />
           <span className="count">{itemData.reviews_count}</span>
           {itemData.bottom_info && (
             <span className="extra">·{itemData.bottom_info?.content}</span>

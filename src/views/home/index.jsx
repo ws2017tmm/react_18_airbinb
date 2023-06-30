@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 10:43:17
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-09 16:37:43
+ * @LastEditTime: 2023-06-30 14:40:50
  */
 import React, { memo, useEffect } from "react"
 import { shallowEqual, useDispatch, useSelector } from "react-redux"
@@ -15,9 +15,10 @@ import HomeSectionV1 from "./c-cpns/home-section-v1"
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
-  const { goodPriceInfo } = useSelector(
+  const { goodPriceInfo, highScoreInfo } = useSelector(
     (state) => ({
-      goodPriceInfo: state.home.goodPriceInfo
+      goodPriceInfo: state.home.goodPriceInfo,
+      highScoreInfo: state.home.highScoreInfo
     }),
     shallowEqual
   )
@@ -31,7 +32,10 @@ const Home = memo(() => {
   return (
     <HomeWrapper>
       <div className="content">
+        {/* 高性价比房源 */}
         <HomeSectionV1 infoData={goodPriceInfo} />
+        {/* 高分好评房源 */}
+        <HomeSectionV1 infoData={highScoreInfo} />
       </div>
     </HomeWrapper>
   )
