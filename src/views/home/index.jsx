@@ -4,21 +4,36 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 10:43:17
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-30 14:40:50
+ * @LastEditTime: 2023-07-03 15:40:43
  */
 import React, { memo, useEffect } from "react"
 import { shallowEqual, useDispatch, useSelector } from "react-redux"
+import _ from "lodash"
 
 import { fetchHomeDataAction } from "@/store/modules/home"
 import HomeWrapper from "./style"
 import HomeSectionV1 from "./c-cpns/home-section-v1"
+import HomeSectionV2 from "./c-cpns/home-section-v2"
+import HomeLongfor from "./c-cpns/home-longfor"
+import HomeSectionV3 from "./c-cpns/home-section-v3"
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
-  const { goodPriceInfo, highScoreInfo } = useSelector(
+  const {
+    discountInfo,
+    recommendInfo,
+    longforInfo,
+    goodPriceInfo,
+    highScoreInfo,
+    plusInfo
+  } = useSelector(
     (state) => ({
+      discountInfo: state.home.discountInfo,
+      recommendInfo: state.home.recommendInfo,
+      longforInfo: state.home.longforInfo,
       goodPriceInfo: state.home.goodPriceInfo,
-      highScoreInfo: state.home.highScoreInfo
+      highScoreInfo: state.home.highScoreInfo,
+      plusInfo: state.home.plusInfo
     }),
     shallowEqual
   )
@@ -32,10 +47,24 @@ const Home = memo(() => {
   return (
     <HomeWrapper>
       <div className="content">
+        {/* 热门目的地 */}
+        {!_.isEmpty(discountInfo) && <HomeSectionV2 infoData={discountInfo} />}
+        {/* 推荐-精彩之地 */}
+        {!_.isEmpty(recommendInfo) && (
+          <HomeSectionV2 infoData={recommendInfo} />
+        )}
+        {/* 你可能想去 */}
+        {!_.isEmpty(longforInfo) && <HomeLongfor infoData={longforInfo} />}
         {/* 高性价比房源 */}
-        <HomeSectionV1 infoData={goodPriceInfo} />
+        {!_.isEmpty(goodPriceInfo) && (
+          <HomeSectionV1 infoData={goodPriceInfo} />
+        )}
         {/* 高分好评房源 */}
-        <HomeSectionV1 infoData={highScoreInfo} />
+        {!_.isEmpty(highScoreInfo) && (
+          <HomeSectionV1 infoData={highScoreInfo} />
+        )}
+        {/* Plus房源 */}
+        {!_.isEmpty(plusInfo) && <HomeSectionV3 infoData={plusInfo} />}
       </div>
     </HomeWrapper>
   )

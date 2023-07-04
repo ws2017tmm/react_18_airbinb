@@ -4,18 +4,18 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 16:36:57
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-30 14:30:07
+ * @LastEditTime: 2023-07-03 15:26:51
  */
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 import {
+  getHomeDiscountData,
+  getHomeHotRecommendData,
+  getHomeLongforData,
   getHomeGoodPriceData,
-  getHomeHighScoreData
-  // getHomeDiscountData,
-  // getHomeHotRecommendData,
-  // getHomeLongforData,
-  // getHomePlusData
+  getHomeHighScoreData,
+  getHomePlusData
 } from "@/services/modules/home"
 
 // 对应第一二种用法
@@ -30,14 +30,28 @@ import {
 // 第三种用法(开发中实际用到较多)
 export const fetchHomeDataAction = createAsyncThunk(
   "fetch/homedata",
-  (payload, store) => {
-    // payload 对应调用接口的入参
+  (payload, { dispatch }) => {
+    // payload 对应调用接口的入参 第二个参数是store
+
+    getHomeDiscountData().then((res) => {
+      dispatch(changeDiscountInfoAction(res))
+    })
+    getHomeHotRecommendData().then((res) => {
+      dispatch(changeRecommendInfoAction(res))
+    })
+    getHomeLongforData().then((res) => {
+      dispatch(changeLongforInfoAction(res))
+    })
+
     getHomeGoodPriceData().then((res) => {
-      store.dispatch(changeGoodPriceInfoAction(res))
+      dispatch(changeGoodPriceInfoAction(res))
     })
 
     getHomeHighScoreData().then((res) => {
-      store.dispatch(changeHighScoreInfoAction(res))
+      dispatch(changeHighScoreInfoAction(res))
+    })
+    getHomePlusData().then((res) => {
+      dispatch(changePlusInfoAction(res))
     })
   }
 )
@@ -45,15 +59,31 @@ export const fetchHomeDataAction = createAsyncThunk(
 const homeSlice = createSlice({
   name: "home",
   initialState: {
+    discountInfo: {},
+    recommendInfo: {},
+    longforInfo: {},
     goodPriceInfo: {},
-    highScoreInfo: {}
+    highScoreInfo: {},
+    plusInfo: {}
   },
   reducers: {
+    changeDiscountInfoAction(state, { payload }) {
+      state.discountInfo = payload
+    },
+    changeRecommendInfoAction(state, { payload }) {
+      state.recommendInfo = payload
+    },
+    changeLongforInfoAction(state, { payload }) {
+      state.longforInfo = payload
+    },
     changeGoodPriceInfoAction(state, { payload }) {
       state.goodPriceInfo = payload
     },
     changeHighScoreInfoAction(state, { payload }) {
       state.highScoreInfo = payload
+    },
+    changePlusInfoAction(state, { payload }) {
+      state.plusInfo = payload
     }
   }
   // 第一种用法（已经快要被淘汰了）
@@ -71,6 +101,12 @@ const homeSlice = createSlice({
   // }
 })
 
-export const { changeGoodPriceInfoAction, changeHighScoreInfoAction } =
-  homeSlice.actions
+export const {
+  changeDiscountInfoAction,
+  changeRecommendInfoAction,
+  changeLongforInfoAction,
+  changeGoodPriceInfoAction,
+  changeHighScoreInfoAction,
+  changePlusInfoAction
+} = homeSlice.actions
 export default homeSlice.reducer
