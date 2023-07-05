@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-06-09 16:00:38
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-09 16:57:26
+ * @LastEditTime: 2023-07-05 14:10:03
  */
 import React, { memo } from "react"
 import { useNavigate } from "react-router-dom"
@@ -23,7 +23,7 @@ const SectionFooter = memo((props) => {
   /** 事件处理的逻辑 */
   const navigate = useNavigate()
   function moreClickHandle() {
-    navigate("/entire")
+    navigate("/entrie")
   }
 
   return (

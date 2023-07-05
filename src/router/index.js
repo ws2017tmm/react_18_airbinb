@@ -4,13 +4,13 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 10:43:02
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-05-25 11:48:23
+ * @LastEditTime: 2023-07-05 14:08:21
  */
 import React from "react"
 import { Navigate } from "react-router-dom"
 
 const Home = React.lazy(() => import("@/views/home"))
-const Entries = React.lazy(() => import("@/views/entries"))
+const Entrie = React.lazy(() => import("@/views/entrie"))
 const Detail = React.lazy(() => import("@/views/detail"))
 
 const routes = [
@@ -23,8 +23,8 @@ const routes = [
     element: <Home />
   },
   {
-    path: "/entries",
-    element: <Entries />
+    path: "/entrie",
+    element: <Entrie />
   },
   {
     path: "/detail",

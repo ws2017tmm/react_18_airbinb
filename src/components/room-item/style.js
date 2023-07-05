@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-06-12 18:19:42
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-12 19:12:32
+ * @LastEditTime: 2023-07-05 15:21:19
  */
 import styled from "styled-components"
 
@@ -31,6 +31,8 @@ export const ItemWrapper = styled.div`
       top: 0;
       width: 100%;
       height: 100%;
+
+      object-fit: cover;
     }
   }
 
