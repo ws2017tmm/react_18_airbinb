@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 10:43:17
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-07-03 15:40:43
+ * @LastEditTime: 2023-07-05 10:12:44
  */
 import React, { memo, useEffect } from "react"
 import { shallowEqual, useDispatch, useSelector } from "react-redux"
@@ -12,6 +12,7 @@ import _ from "lodash"
 
 import { fetchHomeDataAction } from "@/store/modules/home"
 import HomeWrapper from "./style"
+import HomeBanner from "./c-cpns/home-banner"
 import HomeSectionV1 from "./c-cpns/home-section-v1"
 import HomeSectionV2 from "./c-cpns/home-section-v2"
 import HomeLongfor from "./c-cpns/home-longfor"
@@ -46,6 +47,7 @@ const Home = memo(() => {
 
   return (
     <HomeWrapper>
+      <HomeBanner />
       <div className="content">
         {/* 热门目的地 */}
         {!_.isEmpty(discountInfo) && <HomeSectionV2 infoData={discountInfo} />}
