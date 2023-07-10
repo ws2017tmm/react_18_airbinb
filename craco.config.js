@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 11:17:45
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-01 19:38:15
+ * @LastEditTime: 2023-07-07 15:28:40
  */
 const path = require("path")
 const CracoLessPlugin = require("craco-less")
@@ -21,7 +21,7 @@ module.exports = {
       options: {
         lessLoaderOptions: {
           lessOptions: {
-            modifyVars: {},
+            modifyVars: { "@primary-color": "#1DA57A" },
             javascriptEnabled: true
           }
         }
