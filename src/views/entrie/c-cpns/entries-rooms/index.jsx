@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-07-05 13:46:05
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-07-10 09:43:48
+ * @LastEditTime: 2023-07-10 09:53:39
  */
 
 import React, { memo } from "react"
@@ -28,8 +28,8 @@ const EntireRooms = memo(() => {
   const navitate = useNavigate()
   const dispatch = useDispatch()
   function handleItemClick(item) {
-    navitate("/detail")
     dispatch(changeDetailInfoActon(item))
+    navitate("/detail")
   }
 
   return (
