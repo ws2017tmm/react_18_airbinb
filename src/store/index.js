@@ -9,11 +9,13 @@
 import { configureStore } from "@reduxjs/toolkit"
 import homereducer from "./modules/home"
 import entireReducer from "./modules/entrie"
+import detailReducer from "./modules/detail"
 
 const store = configureStore({
   reducer: {
     home: homereducer,
-    entire: entireReducer
+    entire: entireReducer,
+    detail: detailReducer
   }
 })
 

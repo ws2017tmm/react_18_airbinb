@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-06-12 18:19:34
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-07-10 09:23:17
+ * @LastEditTime: 2023-07-10 09:51:04
  */
 import PropTypes from "prop-types"
 import React, { memo, useState, useRef } from "react"
@@ -16,7 +16,7 @@ import Indicator from "../indicator"
 import SvgIcon from "@/assets/svg"
 
 const RoomItem = memo((props) => {
-  const { itemData, itemWidth = "25%" } = props
+  const { itemData, itemWidth = "25%", itemClick } = props
   const [selectIndex, setSelectIndex] = useState(0)
 
   const swiperRef = useRef()
@@ -28,6 +28,10 @@ const RoomItem = memo((props) => {
     if (newIndex < 0) newIndex = itemData.picture_urls.length - 1
     if (newIndex > itemData.picture_urls.length - 1) newIndex = 0
     setSelectIndex(newIndex)
+  }
+
+  function itemClickHandle() {
+    if (itemClick) itemClick()
   }
 
   // 单个图片
@@ -77,6 +81,7 @@ const RoomItem = memo((props) => {
     <ItemWrapper
       verifyColor={itemData?.verify_info?.text_color || "#39576a"}
       itemWidth={itemWidth}
+      onClick={itemClickHandle}
     >
       <div className="inner">
         {itemData.picture_urls ? swiper : singleImage}

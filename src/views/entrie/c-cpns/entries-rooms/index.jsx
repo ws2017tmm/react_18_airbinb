@@ -4,17 +4,17 @@
  * @Autor: StevenWu
  * @Date: 2023-07-05 13:46:05
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-07-05 14:55:16
+ * @LastEditTime: 2023-07-10 09:43:48
  */
 
 import React, { memo } from "react"
-import { shallowEqual, useSelector } from "react-redux"
+import { shallowEqual, useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { RoomsWrapper } from "./style"
 import RoomItem from "@/components/room-item"
 
-// import { changeDetailInfoActon } from "@/store/features/detail"
+import { changeDetailInfoActon } from "@/store/modules/detail"
 
 const EntireRooms = memo(() => {
   const { roomList, isLoading } = useSelector(
@@ -26,10 +26,10 @@ const EntireRooms = memo(() => {
   )
 
   const navitate = useNavigate()
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   function handleItemClick(item) {
     navitate("/detail")
-    // dispatch(changeDetailInfoActon(item))
+    dispatch(changeDetailInfoActon(item))
   }
 
   return (
