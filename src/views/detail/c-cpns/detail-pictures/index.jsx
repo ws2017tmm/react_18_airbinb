@@ -4,23 +4,23 @@
  * @Autor: StevenWu
  * @Date: 2023-07-10 09:58:43
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-07-10 10:06:50
+ * @LastEditTime: 2023-07-14 10:31:20
  */
 import PropTypes from "prop-types"
-import React, { memo } from "react"
+import React, { memo, useState } from "react"
 import { PicturesWrapper } from "./style"
-// import PictureBrowser from '@/base-ui/picture-browser'
+import PictureBrowser from "@/components/picture-browser"
 
 const DetailPictures = memo((props) => {
   const { pictureUrls } = props
-  // const [showBrowser, setShowBrowser] = useState(false)
+  const [showBrowser, setShowBrowser] = useState(false)
 
   function showBrowserHandle() {
-    // setShowBrowser(true)
+    setShowBrowser(true)
   }
 
   function handleCloseClick() {
-    // setShowBrowser(false)
+    setShowBrowser(false)
   }
 
   return (
@@ -46,7 +46,12 @@ const DetailPictures = memo((props) => {
       <div className="show-btn" onClick={showBrowserHandle}>
         查看照片
       </div>
-      {/* { showBrowser && <PictureBrowser pictureUrls={pictureUrls} closeClick={handleCloseClick}/> } */}
+      {showBrowser && (
+        <PictureBrowser
+          pictureUrls={pictureUrls}
+          closeClick={handleCloseClick}
+        />
+      )}
     </PicturesWrapper>
   )
 })
