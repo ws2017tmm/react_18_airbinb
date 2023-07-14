@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 10:43:28
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-07-10 10:14:43
+ * @LastEditTime: 2023-07-13 11:33:49
  */
 
 // import { changeHeaderConfigAction } from '@/store/features/main'
@@ -13,6 +13,7 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux"
 import DetailPictures from "./c-cpns/detail-pictures"
 import { DetailWrapper } from "./style"
 import DetailInfo from "./c-cpns/detail-infos"
+import { changeHeaderConfigAction } from "@/store/modules/main"
 
 const Detail = memo((props) => {
   const { detailInfo } = useSelector(
@@ -24,7 +25,7 @@ const Detail = memo((props) => {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    // dispatch(changeHeaderConfigAction({ isFixed: false, isHome: false }))
+    dispatch(changeHeaderConfigAction({ isFixed: false, isHome: false }))
   }, [dispatch])
 
   return (

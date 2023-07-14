@@ -4,13 +4,14 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 10:43:17
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-07-05 10:12:44
+ * @LastEditTime: 2023-07-13 11:10:51
  */
 import React, { memo, useEffect } from "react"
 import { shallowEqual, useDispatch, useSelector } from "react-redux"
 import _ from "lodash"
 
 import { fetchHomeDataAction } from "@/store/modules/home"
+import { changeHeaderConfigAction } from "@/store/modules/main"
 import HomeWrapper from "./style"
 import HomeBanner from "./c-cpns/home-banner"
 import HomeSectionV1 from "./c-cpns/home-section-v1"
@@ -43,6 +44,7 @@ const Home = memo(() => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchHomeDataAction())
+    dispatch(changeHeaderConfigAction({ isFixed: true, isHome: true }))
   }, [dispatch])
 
   return (

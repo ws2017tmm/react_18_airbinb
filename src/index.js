@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-05-25 09:15:37
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-06-01 10:26:12
+ * @LastEditTime: 2023-07-13 11:35:12
  */
 import React, { Suspense } from "react"
 import ReactDOM from "react-dom/client"
@@ -21,13 +21,13 @@ import App from "./App"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
-  <Suspense fallback="loading">
-    <Provider store={store}>
+  <Provider store={store}>
+    <Suspense fallback="loading">
       <ThemeProvider theme={theme}>
         <HashRouter>
           <App />
         </HashRouter>
       </ThemeProvider>
-    </Provider>
-  </Suspense>
+    </Suspense>
+  </Provider>
 )
