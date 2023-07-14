@@ -4,7 +4,7 @@
  * @Autor: StevenWu
  * @Date: 2023-06-12 18:19:34
  * @LastEditors: StevenWu
- * @LastEditTime: 2023-07-10 09:51:04
+ * @LastEditTime: 2023-07-14 11:37:19
  */
 import PropTypes from "prop-types"
 import React, { memo, useState, useRef } from "react"
@@ -20,7 +20,7 @@ const RoomItem = memo((props) => {
   const [selectIndex, setSelectIndex] = useState(0)
 
   const swiperRef = useRef()
-  function controlClickHandle(isNext = true) {
+  function controlClickHandle(isNext = true, event) {
     if (isNext) swiperRef.current.next()
     else swiperRef.current.prev()
 
@@ -28,6 +28,8 @@ const RoomItem = memo((props) => {
     if (newIndex < 0) newIndex = itemData.picture_urls.length - 1
     if (newIndex > itemData.picture_urls.length - 1) newIndex = 0
     setSelectIndex(newIndex)
+
+    event.stopPropagation()
   }
 
   function itemClickHandle() {
@@ -44,10 +46,10 @@ const RoomItem = memo((props) => {
   const swiper = (
     <div className="swiper">
       <div className="control">
-        <div className="btn left" onClick={(e) => controlClickHandle(false)}>
+        <div className="btn left" onClick={(e) => controlClickHandle(false, e)}>
           <SvgIcon name="arrow_left" />
         </div>
-        <div className="btn right" onClick={(e) => controlClickHandle(true)}>
+        <div className="btn right" onClick={(e) => controlClickHandle(true, e)}>
           <SvgIcon name="arrow_right" />
         </div>
       </div>
